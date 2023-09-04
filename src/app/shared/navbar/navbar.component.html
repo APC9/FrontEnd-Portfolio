@@ -1,0 +1,55 @@
+<nav class="navbarr">
+
+  <div class="navbar__div">
+
+    <span class="div__span-logo">
+      <a routerLink="inicio">
+        <img class="span-log__img" src="../../../assets/img/p.png">
+      </a>
+    </span>
+
+    <span class="div__span-menu" (click)="changeToggle()">
+      <i class="fa-solid fa-bars"></i>
+    </span>
+  </div>
+
+  <div class="navbar__list animate animate__slideInDown" [class.mostrar]="!toogle" [class.ocultar]="toogle">
+    <ul class="list__ul" >
+      <li>
+        <span class="list__ul__span">
+          <a routerLink="/apc/inicio" routerLinkActive="link-active">Inicio</a>
+        </span>
+      </li>
+      <li>
+        <span>
+          <a routerLink="/apc/about" routerLinkActive="link-active">Sobre Mí</a>
+        </span>
+      </li>
+      <li>
+        <span>
+          <a routerLink="/apc/projects" routerLinkActive="link-active">Proyectos</a>
+        </span>
+      </li>
+      <li>
+        <span>
+          <a routerLink="/apc/contactos" routerLinkActive="link-active">Contactos</a>
+        </span>
+      </li>
+      <li>
+      </li>
+      <li>
+        <span *ngIf="!isAuthententicated">
+          <a class="list__ul-contactos" routerLink="/apc/contactos" (click)="redirectToLogin()">Login</a>
+        </span>
+        <span *ngIf="isAuthententicated">
+          <a class="list__ul-contactos" routerLink="/apc/contactos" (click)="logout()">Logout</a>
+        </span>
+      </li>
+    </ul>
+  </div>
+
+
+</nav>
+
+
+

@@ -1,0 +1,89 @@
+<div class="contenedor  animate__animated animate__fadeIn">
+
+  <div class="container__elements">
+
+    <div class="elements__info ">
+
+        <h2>Información de contacto</h2>
+
+        <div class="info-text">
+            <div class="item">
+                <span class="fas fa-map-marker-alt"></span>
+                <span>Estepona, Malaga</span>
+            </div>
+
+            <div class="item">
+                <span class="fas fa-envelope"></span>
+                <span>penacastilloalberto32@gmail.com</span>
+            </div>
+
+            <div class="item">
+                <span class="fas fa-phone-alt"></span>
+                <span>+34 643 70 36 24</span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="elements__form" >
+      <h2>Contactame</h2>
+
+      <form
+        method="post"
+        name="contact"
+        [formGroup]="emailForm"
+        (submit)="sendEmail()"
+        >
+
+        <input type="hidden" name="form-name" value="contact">
+
+        <div class="form-box">
+
+            <div class="input-box w50">
+                <label class="w100" for="name">
+                    <input formControlName="name" type="text" name="name" id="name" required="">
+                    <span>Nombre</span>
+                </label>
+            </div>
+
+            <div class="input-box w50">
+                <label class="w100"for="last-name">
+                    <input formControlName="lastName" type="text" name="last-name" id="last-name" required="">
+                    <span>Apellido</span>
+                </label>
+            </div>
+
+            <div class="input-box w100">
+                <label class="w100" for="email">
+                    <input formControlName="email" type="email" name="email" id="email" required="">
+                    <span>Email</span>
+                </label>
+            </div>
+
+            <div class="input-box w100">
+                <label class="w100" for="text">
+                    <textarea formControlName="text" name="text" id="text" required=""></textarea>
+                    <span>Escribe tu mensaje...</span>
+                </label>
+            </div>
+
+            <div class="input-box w100 btn">
+                <input type="submit" value="Enviar" [disabled]="isLoading">
+              </div>
+            </div>
+
+            <div *ngIf="msgError.length > 0">
+              <h4>{{msgError}}</h4>
+            </div>
+
+            <div *ngIf="isLoading">
+              <i class="fa fa-spinner fa-spin"></i>
+              <h5>Enviando Email, espere por favor...</h5>
+            </div>
+    </form>
+    </div>
+
+  </div>
+</div>
+
+

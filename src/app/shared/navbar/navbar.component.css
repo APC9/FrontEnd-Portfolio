@@ -1,0 +1,162 @@
+.navbarr{
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items:center ;
+  padding-left: 50px;
+  padding-right: 50px;
+  border-bottom: 1px solid #000;
+  background: white;
+  position: fixed;
+  z-index: 100;
+}
+
+.navbar__div{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.div__span-logo{
+  width: 50%;
+}
+
+.div__span-menu{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 40px;
+  height: 80px;
+  display: none;
+  cursor: pointer;
+}
+
+img, svg{
+  vertical-align: baseline;
+}
+
+.span-log__img{
+  width: 100px;
+  height: 100%;
+}
+
+.navbar__list{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.list__ul{
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  list-style: none;
+}
+
+.list__ul__span{
+  width: 100px;
+  height: 100px;
+}
+
+
+.list__ul li{
+  margin-left: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.list__ul li a{
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+  white-space: nowrap;
+}
+
+.list__ul-contactos{
+  border: 2px solid #f98a5b;
+  padding: 10px;
+  border-radius: 30px;
+  transition: all .3s;
+}
+
+.list__ul-contactos:hover{
+  background: #df6a37;
+  color: white !important;
+  border: 2px solid #f98a5b;
+}
+
+.link-active{
+  color: #f98a5b !important;
+  border-bottom: 1px solid #000;
+  transition: all .3s;
+}
+
+.scale-in-ver-top{animation:scale-in-ver-top .5s cubic-bezier(.25,.46,.45,.94) both}
+
+@media (max-width: 1200px){
+  .list__ul li a{
+    font-size: 15px
+  }
+}
+
+@media (max-width: 1000px){
+
+  .mostrar{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    transition: all .5s;
+  }
+
+  .ocultar{
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: all .5s;
+  }
+
+
+  .navbar{
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .navbar__div{
+    width: 100%;
+    min-height: 100px;
+  }
+
+  .div__span-menu{
+    display: block;
+    width: 50%;
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar__list{
+    flex-direction: column;
+    width: 100%;
+    height: 300px;
+    background: white;
+  }
+
+  .list__ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+
+  .list__ul li{
+    margin: 10px;
+  }
+
+
+}
+
+
