@@ -1,1 +1,91 @@
-<p>create-publication works!</p>
+
+<section class="container__form animate__animated animate__fadeIn">
+
+  <div class="form__inputs">
+
+    <h4 *ngIf="!publication">Crear Nueva Publicacion</h4>
+    <h4 *ngIf="publication">Editar Publicacion</h4>
+
+    <form class="form" [formGroup]="publicationForm" (submit)="submit()">
+
+      <div class="form__group">
+        <label>Nombre de la Publicacion</label>
+        <div class="group__input">
+          <input
+            type="text"
+            placeholder="Nombre del Proyecto"
+            formControlName="name"
+          />
+        </div>
+      </div>
+
+      <div class="form__alert" *ngIf="isValidField('name')">
+        <span>Debe contener al menos 4 caracteres</span>
+      </div>
+
+      <div class="form__group--textarea">
+        <label>Contenido de la Publicacion</label>
+        <div class="group__input">
+          <textarea
+            rows="4" cols="12"
+            placeholder="Descripcion del Proyecto"
+            formControlName="content"
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="form__alert" *ngIf="isValidField('content')">
+        <span>Debe contener al menos 4 caracteres</span>
+      </div>
+
+      <button
+        *ngIf="!publication"
+        class="buttons__bottom submit"
+        type="submit">Enviar</button>
+
+      <button
+        *ngIf="publication"
+        class="buttons__bottom submit"
+        type="submit">Actualizar</button>
+    </form>
+
+  </div>
+
+  <div class="img-form">
+
+    <h4>Selecione una imagen</h4>
+
+    <div class="form__imagen">
+      <img
+        *ngIf="!publication?.img && !previewImage"
+        src='https://res.cloudinary.com/dybfsyxq9/image/upload/v1686847866/no-image_zio7qg.jpg'  />
+
+        <img
+        *ngIf="publication?.img"
+        [src]="publication.img" />
+
+        <img
+        *ngIf="previewImage"
+        [src]="previewImage"  />
+    </div>
+
+    <div class="file-select" id="src-file1" >
+
+      <input
+        (change)="changeImage($any($event.target).files[0] )"
+        type="file"
+        name="src-file1"
+        aria-label="Archivo">
+    </div>
+
+
+    <div class="buttons">
+      <button class="buttons__bottom" (click)="sendImage()">Subir</button>
+    </div>
+  </div>
+
+
+</section>
+
+
+

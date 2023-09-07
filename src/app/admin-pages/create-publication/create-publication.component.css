@@ -1,0 +1,229 @@
+
+.container__form{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.bloqueado{
+  width: 90%;
+  height: 80%;
+  margin-top: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 1000;
+  background-color: rgba(249, 138, 91, 0.185);
+  border-radius: 20px;
+}
+
+.bloqueado h1{
+  font-size: 2em;
+
+}
+
+
+.form__inputs{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 150px;
+}
+
+.img-form{
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 120px;
+}
+
+.form__inputs h4, .img-form h4{
+  width: 100%;
+  font-size: 2em;
+  color: #f98a5b;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.form{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form__group{
+  width: 100%;
+  height: 75px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.form__group--textarea{
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.radio__label{
+  width: 100%;
+  height: 20%;
+}
+
+.group__input{
+  width: 100%;
+}
+
+.form__group label,
+.form__group--textarea label{
+  margin-left: 10px;
+}
+
+.group__input input, select{
+  width: 90%;
+  height: 30px;
+  margin-right: 15%;
+  margin-left: 10px;
+  padding: 5px;
+  transition: all .5s;
+}
+
+.group__input textarea{
+  width: 90%;
+  height: 150px;
+  margin-right: 15%;
+  margin-left: 10px;
+  border-radius: 5px;
+  padding: 5px;
+  transition: all .5s;
+}
+
+.group__input input:focus,
+  select:focus,
+  textarea:focus{
+  background: rgba(249, 138, 91, .2);
+}
+
+.form__alert span{
+  color: red;
+  margin-left: 10px;
+}
+
+.form__imagen{
+  width: 50%;
+  height: 50%;
+  border: 1px solid black;
+}
+
+.form__imagen img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+
+.buttons{
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons__bottom{
+  padding: 7px;
+  border-radius: 30px;
+  margin-right: 10px;
+  background: #f98a5b;
+  border: 1px solid #f98a5b;
+  color: white;
+}
+
+.buttons__bottom:hover{
+  padding: 7px;
+  border-radius: 30px;
+  margin-right: 10px;
+  background: #ffffff;
+  border: 1px solid #f98a5b;
+  color: #f98a5b;
+}
+
+
+.submit{
+  width: 80%;
+  margin-left: 5%;
+}
+.technologies{
+  width: 90%;
+  height: 30px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 10px;
+  border: 1px solid black;
+}
+
+.selected{
+  padding-left: 10px;
+}
+
+/*  */
+
+.file-select {
+  position: relative;
+  display: inline-block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+.file-select::before {
+  background: #ffffff;
+  color: #f98a5b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  border: 1px solid #f98a5b;
+  content: 'Seleccionar Archivo';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+
+.file-select input[type="file"] {
+  opacity: 0;
+  width: 250px;
+  height: 30px;
+  display: inline-block;
+}
+
+@media (max-width: 700px) {
+  .container__form{
+    flex-direction: column;
+    margin-bottom: 200px;
+  }
+
+  .img-form{
+    margin-top: 50px;
+  }
+}

@@ -1,38 +1,43 @@
 <section class="contenedor animate__animated animate__fadeIn">
-  <div class="container__title">
-    <h1 class="title__h1">Proyectos</h1>
-    <h3>Bitácora de Desarrollo: Proyectos Web que He Forjado</h3>
-  </div>
 
-  <div class="container__projects">
+  <div class="contenedor__general">
 
-    <div class="projects__card" *ngFor="let project of projects">
-
-      <div class="card__img" >
-        <img [src]="project.img"/>
+    <div class="container__title">
+      <div class="general__banner">
+        <h1><strong>Proyectos</strong> Recientes</h1>
       </div>
+    </div>
 
-      <div class="card__content">
+    <div class="container__projects">
+
+      <div class="projects__card" *ngFor="let project of projects">
+
+        <div class="card__img" >
+          <img [src]="project.img"/>
+        </div>
+
+        <div class="card__content">
 
 
-        <div class="content__items">
-          <h1>{{project.name}}</h1>
+          <div class="content__items">
+            <h1>{{project.name}}</h1>
 
-          <div class="items__logo">
-            <img
-              [src]="'../../../assets/img/'+project.technologies[0].toLocaleLowerCase()+'.png'"
-              [alt]="project.technologies[0]"
-            />
-          </div>
+            <div class="items__logo">
+              <img
+                [src]="'../../../assets/img/'+project.technologies[0].toLocaleLowerCase()+'.png'"
+                [alt]="project.technologies[0]"
+              />
+            </div>
 
-          <div class="items__buttons">
-            <button (click)="redirectToProject(project._id)">Ver</button>
+            <div class="items__buttons">
+              <button (click)="redirectToProject(project._id)">Ver</button>
+            </div>
           </div>
         </div>
+
       </div>
 
     </div>
-
   </div>
 
 </section>

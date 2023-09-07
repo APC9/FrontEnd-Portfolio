@@ -14,6 +14,8 @@ import { RouterModule } from '@angular/router';
 import { CreatePublicationComponent } from './create-publication/create-publication.component';
 import { PublicationsComponent } from './publications/publications.component';
 import { ProjectsComponent } from './projects/projects.component';
+import { publicationsReducer } from './store/publications/publications.reducer';
+import { publicationsEffects } from './store/publications/publications.effects';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { ProjectsComponent } from './projects/projects.component';
     ReactiveFormsModule,
     RouterModule,
     StoreModule.forFeature('projects', projectsReducer),
+    StoreModule.forFeature('publications', publicationsReducer),
     EffectsModule.forFeature( ProjectsEffects),
+    EffectsModule.forFeature( publicationsEffects ),
   ],
   exports: [
     CreateProjectComponent,

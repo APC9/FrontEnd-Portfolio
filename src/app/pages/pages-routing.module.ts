@@ -8,6 +8,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { ProjectByIdComponent } from './project-by-id/project-by-id.component';
 import { PagesComponent } from './pages.component';
 import { LoginComponent } from './login/login.component';
+import { PublicationsComponent } from './publications/publications.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,7 @@ const routes: Routes = [
       { path: 'inicio', component: HomeComponent  },
       { path: 'about', component: AboutComponent  },
       { path: 'projects', component: ProjectsComponent  },
+      { path: 'publications', component: PublicationsComponent  },
       { path: 'project/:id', component: ProjectByIdComponent  },
       { path: 'contactos', component: ContactsComponent  },
       { path: 'login', component: LoginComponent  },

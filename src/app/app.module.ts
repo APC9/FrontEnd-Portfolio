@@ -10,9 +10,10 @@ import { SharedModule } from './shared/shared.module';
 
 
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { PagesModule } from './pages/pages.module';
 import { AdminpagesModule } from './admin-pages/adminpages.module';
+import { TokenInterceptor } from './interceptors/token.interceptors';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,13 @@ import { AdminpagesModule } from './admin-pages/adminpages.module';
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
 
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

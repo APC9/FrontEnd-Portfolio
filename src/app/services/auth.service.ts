@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { catchError, tap } from 'rxjs';
+import { Observable, catchError, map, of, tap } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -24,6 +24,19 @@ export class AuthService {
   logout(){
     localStorage.removeItem('token');
     this.router.navigateByUrl('/apc/inicio')
+  }
+
+  validarToken(): Observable<boolean> {
+
+    return this.http.get(`${ this.url }/auth/check-token`)
+    .pipe(
+      tap( (resp: any) => {
+        localStorage.setItem('token', resp.token );
+      }),
+      map( resp => true),
+      catchError( error => of(false) )
+    );
+
   }
 
 }

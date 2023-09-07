@@ -1,17 +1,27 @@
 .contenedor{
   width: 100%;
-  height: calc(100vh - 200px);
-  position: absolute;
-  top: 150px;
+  height: calc( 100vh - 100px);
   display: flex;
   justify-content: center;
   align-items: center;
+  background: #aaa;
+}
+
+.contenedor__general{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 100%;
+  background: white;
+  padding-top: 150px;
 }
 
 .container__img{
   width: 45%;
   height: 95%;
   border: 2px solid black;
+  border-radius: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,6 +42,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+  border-radius: 30px;
 }
 
 .container__descripcion{
@@ -60,6 +71,10 @@
   height: 10%;
   text-align: center;
   font-size: 2em;
+  color: #000000;
+}
+
+.descripcion__info strong{
   color: #f98a5b;
 }
 
@@ -70,30 +85,49 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
 }
 
-.info h3{
-  padding: 10px;
-}
 
-.info strong{
+
+.buttons__bottom{
+  width: 12em;
+  height: 40px;
+  margin-right: 10px;
+  font-size: 1em;
+  background: white;
+  border: 2px solid #f98a5b;
+  border-radius: 30px;
+  transition: all .5s;
   color: #f98a5b;
-  border-bottom: 2px solid black;
 }
 
-
-.descripcion{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+.buttons__bottom:hover{
+  background: #f98a5b;
+  border: 2px solid white;
+  color: white;
 }
 
-.descripcion p{
-  padding: 20px;
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 50px;
+  background-color: white;
 }
 
+th{
+  width: 30%;
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
 
 
 @media (max-width: 1000px){

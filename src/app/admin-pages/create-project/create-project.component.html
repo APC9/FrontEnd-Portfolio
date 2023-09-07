@@ -1,10 +1,6 @@
 
 <section class="container__form animate__animated animate__fadeIn">
 
-  <div class="bloqueado" *ngIf="!autenticated">
-    <h1>solo para Uso del Admistrador</h1>
-  </div>
-
   <div class="form__inputs">
 
     <h4 *ngIf="!project">Crear Nuevo Proyecto</h4>
@@ -93,14 +89,12 @@
       </div>
 
       <button
-        [style.display]="!autenticated? 'none' : 'block'"
         *ngIf="!project"
         [disabled]="projectsForm.invalid"
         class="buttons__bottom submit"
         type="submit">Enviar</button>
 
       <button
-        [style.display]="!autenticated? 'none' : 'block'"
         *ngIf="project"
         [disabled]="projectsForm.invalid"
         class="buttons__bottom submit"

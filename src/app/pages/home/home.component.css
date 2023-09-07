@@ -4,6 +4,7 @@
   align-items: center;
   width: 100%;
   height: 100vh;
+  background: #d1d1d1;
 }
 
 .container__info{
@@ -40,9 +41,8 @@
 }
 
 .text__h1{
-  font-size: 4em;
-  color: #f98a5b
-
+  font-size: 5em;
+  color: #f98a5b;
 }
 
 .buttons__bottom{

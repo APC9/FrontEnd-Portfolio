@@ -5,6 +5,7 @@ import { projectsState } from '../store/project/projects.reducer';
 import * as actionProjects from '../store/project/projects.actions';
 import { Project } from '../../models/project.model';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'admin-projects-list',
@@ -16,6 +17,7 @@ export class ProjectsComponent implements OnInit, OnDestroy {
   public projects: Project[] = [];
   private store = inject( Store<projectsState>);
   private clearSubscriptions!: Subscription;
+  private router = inject( Router );
 
   ngOnInit(): void {
     this.clearSubscriptions = this.store.select('projects').subscribe(({projects})=>{
@@ -50,5 +52,9 @@ export class ProjectsComponent implements OnInit, OnDestroy {
         )
       }
     })
+  }
+
+  redirectToEdit(id: string){
+    this.router.navigateByUrl(`dashboard/create-project/${id}`)
   }
 }

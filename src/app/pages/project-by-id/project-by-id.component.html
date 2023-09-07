@@ -1,6 +1,8 @@
 <div class="contenedor">
 
-  <div class="container__img animate__animated animate__backInLeft">
+  <div class="contenedor__general">
+
+      <div class="container__img animate__animated animate__backInLeft">
     <div class="img__imagen">
       <img [src]="project.img" />
     </div>
@@ -9,26 +11,37 @@
   <div class="container__descripcion">
 
     <div class="descripcion__info">
-      <h1>Descripcion del Proyecto</h1>
+      <h1><strong>Descripcion</strong> del Proyecto</h1>
 
       <div class="info">
-        <h3><strong> Tipo de Proyecto:</strong> {{ project.type }}</h3>
-        <h3><strong> Nombre del Proyecto:</strong> {{ project.name }}</h3>
-        <h3><strong> Url del Proyecto:</strong>
-          <a [href]="project.url" target="_blank">{{project.url }}</a>
-        </h3>
-        <h3><strong> Tecnologias Empleadas:</strong> {{ project.technologies }}</h3>
 
-        <div class="descripcion">
-            <h3><strong>Descripcion:</strong></h3>
-          <p>
-           {{ project.description}}
-          </p>
-        </div>
+        <table>
+          <tr>
+              <th>Nombre del Proyecto</th>
+              <td>{{project.name}}</td>
+          </tr>
+          <tr>
+              <th>Tipo de Proyecto</th>
+              <td>{{project.type}}</td>
+          </tr>
+          <tr>
+              <th>Tecnologias Utilizadas</th>
+              <td>{{project.technologies}}</td>
+          </tr>
+          <tr>
+              <th>Descripcion</th>
+              <td>{{project.description}}</td>
+          </tr>
+      </table>
+
+        <a [href]="project.url" target="_blank">
+          <button class="buttons__bottom">Visitar</button>
+        </a>
 
       </div>
     </div>
 
+  </div>
   </div>
 
 </div>

@@ -30,7 +30,6 @@ export class CreateProjectComponent implements OnInit, OnDestroy {
   public previewImage!: string | null;
   public ImageUrlUpload: string = '';
   public id!: string;
-  public autenticated!: boolean;
 
   private fb = inject(FormBuilder)
   private validatorsService = inject(ValidatorsService);
@@ -39,7 +38,7 @@ export class CreateProjectComponent implements OnInit, OnDestroy {
   private route = inject(ActivatedRoute);
   private store = inject(Store<projectsState>);
   private clearSubcription!: Subscription;
-  private clearSubcriptionAuth!: Subscription;
+
 
   ngOnInit(): void {
 
@@ -53,8 +52,6 @@ export class CreateProjectComponent implements OnInit, OnDestroy {
         description: ['', [Validators.required ] ]
       });
 
-      this.clearSubcriptionAuth = this.store.select('auth').subscribe( ({isAuthenticated}) => this.autenticated = isAuthenticated )
-
       this.clearSubcription = this.store.select('projects')
         .pipe(
           filter( resp => resp.project.length !== 0 )
@@ -64,7 +61,7 @@ export class CreateProjectComponent implements OnInit, OnDestroy {
           this.loadProject( this.id, projects.project[0])
         })
 
-      if( this.id !== 'crear-nuevo' ){
+      if( this.id !== 'new' ){
         this.store.dispatch( loadProject({id: this.id}) )
       };
 
@@ -72,12 +69,11 @@ export class CreateProjectComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.clearSubcription.unsubscribe()
-    this.clearSubcriptionAuth.unsubscribe()
   }
 
 
   loadProject(id:string, project: Project){
-    if ( id === 'crear-nuevo') return;
+    if ( id === 'new') return;
     this.project = project;
     const { name, type, url, description, technologies, img } = project;
     this.ImageUrlUpload = img;
@@ -95,8 +91,7 @@ export class CreateProjectComponent implements OnInit, OnDestroy {
   }
 
   submit(){
-    if( !this.autenticated ) return;
-    if( this.id === 'crear-nuevo'){
+    if( this.id === 'new'){
       this.createProject()
       return;
     }

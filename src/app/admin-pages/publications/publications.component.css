@@ -1,0 +1,26 @@
+.contenedor{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 100%;
+  margin-top: 50px;
+}
+
+table{
+  margin-left: 10%;
+  margin-top: 30px ;
+}
+table img{
+ width: 100px;
+ height: 100px;
+}
+
+.w40{
+  width: 40%;
+}
+
+.w20{
+  width: 20%;
+}

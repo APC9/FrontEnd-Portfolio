@@ -12,10 +12,14 @@ export class FileuploadService {
 
   constructor() { }
 
-  uploadFile( file: File){
+  uploadFile( file: File, path?: string){
 
     const formData = new FormData();
     formData.append('image', file)
+
+    if( path ){
+      return this.http.post( `${this.url}/cloudinary/${path}`, formData, { responseType: 'text'} )
+    }
 
     return this.http.post( `${this.url}/cloudinary`, formData, { responseType: 'text'} )
   }

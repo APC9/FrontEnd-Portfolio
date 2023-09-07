@@ -32,16 +32,24 @@
       </li>
       <li>
         <span>
+          <a routerLink="/apc/publications" routerLinkActive="link-active">Publicaciones</a>
+        </span>
+      </li>
+      <li>
+        <span>
           <a routerLink="/apc/contactos" routerLinkActive="link-active">Contactos</a>
         </span>
       </li>
       <li>
       </li>
       <li>
-        <span *ngIf="!isAuthententicated">
+
+        <!-- Probar con algun even emiter para mostrar los botones de login y logout -->
+
+        <span *ngIf="!isAuthententicated()">
           <a class="list__ul-contactos" routerLink="/apc/contactos" (click)="redirectToLogin()">Login</a>
         </span>
-        <span *ngIf="isAuthententicated">
+        <span *ngIf="isAuthententicated()">
           <a class="list__ul-contactos" routerLink="/apc/contactos" (click)="logout()">Logout</a>
         </span>
       </li>

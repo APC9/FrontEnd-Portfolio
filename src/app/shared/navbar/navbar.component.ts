@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, HostListener, OnDestroy, OnInit, Output, inject } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, OnDestroy, OnInit, Output, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 
@@ -12,12 +12,13 @@ import { unauthenticated } from 'src/app/pages/authStore/auth.action';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit, OnDestroy{
+export class NavbarComponent implements OnInit{
 
   @Output() clickedInsideMenu = new EventEmitter<boolean>();
 
   public toogle: boolean = false;
-  public isAuthententicated: boolean = false;
+  public isAuthententicated = signal<boolean>(false);
+  public token!: boolean;
   public screenWidth!: number;
   public screenHeight!: number;
 
@@ -28,12 +29,8 @@ export class NavbarComponent implements OnInit, OnDestroy{
   private authService = inject(AuthService);
 
   ngOnInit(): void {
+    this.isAuthententicated.update(current => current = !!localStorage.getItem('token') );
     this.changeToggle()
-    this.clearSubscription = this.store.select('auth').subscribe( ({isAuthenticated}) => this.isAuthententicated = isAuthenticated )
-  }
-
-  ngOnDestroy(): void {
-      this.clearSubscription.unsubscribe()
   }
 
   changeToggle(){
@@ -69,6 +66,7 @@ export class NavbarComponent implements OnInit, OnDestroy{
 
   logout(){
     this.authService.logout()
+    this.isAuthententicated.update(current => current = !!localStorage.getItem('token') );
     this.store.dispatch( unauthenticated() )
   }
 }
