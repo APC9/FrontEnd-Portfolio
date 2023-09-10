@@ -1,6 +1,6 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import { Publication } from 'src/app/models/publication.model';
-import { deletepublication, deletepublicationError, deletepublicationSucces, errorloadpublication, errorloadpublications, loadpublication, loadpublicationSucces, loadpublications, loadpublicationsSucces, updatepublication, updatepublicationSucces } from './publications.actions';
+import { deletepublication, deletepublicationError, deletepublicationSucces, errorloadpublication, errorloadpublicationByTerm, errorloadpublications, loadpublication, loadpublicationByTerm, loadpublicationByTermSucces, loadpublicationSucces, loadpublications, loadpublicationsSucces, updatepublication, updatepublicationSucces } from './publications.actions';
 
 export interface publicationsState{
   publications: Publication[];
@@ -31,6 +31,8 @@ const _publicationsReducer = createReducer(
     }) ),
 
 
+//publicacion po id
+
   on( loadpublication, (state, { id }) => ({
     ...state,
     publication: state.publications.filter( pro => pro._id === id ),
@@ -46,6 +48,21 @@ const _publicationsReducer = createReducer(
     error: payload
   })),
 
+  //publicacion por termino
+  on( loadpublicationByTerm, (state, { term }) => ({
+    ...state,
+    publication: state.publications.filter( publication => publication.name === term ),
+    isLoading: false,
+   }) ),
+   on( loadpublicationByTermSucces, (state, { publication }) => ({
+    ...state,
+    publication: [...publication],
+    isLoading: false
+  }) ),
+  on( errorloadpublicationByTerm, (state, {payload}) => ({
+    ...state,
+    error: payload
+  })),
 
   on( updatepublication, (state, { publication, id }) => {
     const newpublications = state.publications.map( ( pro ) => pro._id === id ? { ...pro, ...publication }: pro );

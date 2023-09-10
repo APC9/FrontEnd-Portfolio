@@ -7,7 +7,7 @@ import { PublicationsService } from '../../../services/publications.service';
 
 import * as publicationsActions from './publications.actions';
 
-import { deletepublication, updatepublication } from './publications.actions';
+import { deletepublication, updatepublication, errorloadpublicationByTerm } from './publications.actions';
 
 
 @Injectable()
@@ -35,6 +35,17 @@ export class publicationsEffects{
       .pipe(
         map( (publication: Publication) => publicationsActions.loadpublicationSucces({publication: [{...publication}] } )),
         catchError( (error)=> of( publicationsActions.errorloadpublications({payload: error}) ) )
+      ))
+    )
+  )
+
+  loadpublicationByTerm$ = createEffect( () => this.actions$
+  .pipe(
+    ofType( publicationsActions.loadpublicationByTerm ),
+    mergeMap( (action)=> this.publicationsService.getPublicationsByTerm(action.term)
+      .pipe(
+        map( (publication: Publication) => publicationsActions.loadpublicationByTermSucces({publication: [{...publication}] } )),
+        catchError( (error)=> of( publicationsActions.errorloadpublicationByTerm({payload: error}) ) )
       ))
     )
   )

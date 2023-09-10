@@ -84,4 +84,37 @@ li{
   list-style: none;
 }
 
+@media (max-width: 1000px){
+
+  .info{
+    flex-direction: column;
+  }
+
+  .info__text{
+    width: 100%;
+  }
+
+  .info__skill{
+    width: 90%;
+    margin-left: 5%;
+    margin-bottom: 150px;
+  }
+
+}
+
+@media (max-width: 800px){
+  .general__banner h1{
+    font-size: 3em;
+    text-align: center;
+  }
+}
+@media (max-width: 592px){
+  .general__banner h1{
+    font-size: 2.5em;
+  }
+  .general__banner{
+    margin: 0px;
+  }
+}
+
 

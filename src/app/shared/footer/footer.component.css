@@ -41,6 +41,7 @@
   border: 3px solid #f98a5b;
   border-radius: 50%;
   margin-left: 10px;
+  cursor: pointer;
 }
 
 .footer__icons__icon:hover{
@@ -55,6 +56,10 @@
 .icon{
   color: #f98a5b;
   font-size: 20px;
+}
+
+a{
+  color: transparent;
 }
 
 @media (max-width: 550px) {

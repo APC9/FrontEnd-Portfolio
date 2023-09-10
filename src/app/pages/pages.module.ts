@@ -15,6 +15,7 @@ import { LoginComponent } from './login/login.component';
 import { StoreModule } from '@ngrx/store';
 import { authenticatedReducer } from './authStore/auth.store';
 import { PublicationsComponent } from './publications/publications.component';
+import { PublicationByTermComponent } from './publication-by-term/publication-by-term.component';
 
 
 
@@ -28,7 +29,8 @@ import { PublicationsComponent } from './publications/publications.component';
     ProjectsComponent,
     PagesComponent,
     LoginComponent,
-    PublicationsComponent
+    PublicationsComponent,
+    PublicationByTermComponent
   ],
   imports: [
     CommonModule,

@@ -12,6 +12,6 @@ export class HomeComponent {
   private router = inject(Router);
 
   navigateToContacts(){
-    this.router.navigateByUrl('/contactos')
+    this.router.navigateByUrl('/apc/contactos')
   }
 }

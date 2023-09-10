@@ -113,7 +113,7 @@
         src='https://res.cloudinary.com/dybfsyxq9/image/upload/v1686847866/no-image_zio7qg.jpg'  />
 
       <img
-        *ngIf="project?.img"
+        *ngIf="project?.img  && !previewImage"
         [src]="project.img" />
 
       <img
@@ -131,7 +131,8 @@
 
 
     <div class="buttons">
-      <button class="buttons__bottom" (click)="sendImage()">Subir</button>
+      <span class="loader" *ngIf="loading"></span>
+      <button class="buttons__bottom" (click)="sendImage()" *ngIf="!loading" >Subir</button>
     </div>
   </div>
 

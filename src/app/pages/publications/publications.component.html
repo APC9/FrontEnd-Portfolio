@@ -8,16 +8,16 @@
     </div>
 
     <section>
-      
+
       <div class="container__publication">
-        <div class="publication__card">
+        <div class="publication__card" *ngFor="let publication of publications">
           <div class="publication__img">
-            <img src="../../../assets/img/angular.png"/>
+            <img [src]="publication.img"/>
           </div>
 
           <p>Por: Adminitrador</p>
           <div class="container__title">
-            <h1>Titulo de la publicacion</h1>
+            <h3 (click)="redirectToPublication(publication.name)">{{publication.name}}</h3>
           </div>
           <hr>
         </div>
@@ -28,27 +28,9 @@
         <h3>Ultimas publicaciones</h3>
 
         <div class="section__publication">
-          <div class="section__img">
-            <img src="../../../assets/img/docker.png" alt="">
-            <h5><strong>nombre de la publicacion</strong></h5>
-          </div>
-        </div>
-        <div class="section__publication">
-          <div class="section__img">
-            <img src="../../../assets/img/docker.png" alt="">
-            <h5><strong>nombre de la publicacion</strong></h5>
-          </div>
-        </div>
-        <div class="section__publication">
-          <div class="section__img">
-            <img src="../../../assets/img/docker.png" alt="">
-            <h5><strong>nombre de la publicacion</strong></h5>
-          </div>
-        </div>
-        <div class="section__publication">
-          <div class="section__img">
-            <img src="../../../assets/img/docker.png" alt="">
-            <h5><strong>nombre de la publicacion</strong></h5>
+          <div class="section__img" *ngFor="let publication of publications">
+            <img [src]="publication.img" [alt]="publication.name">
+            <h5 (click)="redirectToPublication(publication.name)"><strong>{{publication.name}}</strong></h5>
           </div>
         </div>
       </div>

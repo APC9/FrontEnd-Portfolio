@@ -15,19 +15,34 @@ export const errorloadpublications = createAction(
 );
 
 export const loadpublication = createAction(
-  '[publications Component] load publication',
+  '[publication Component] load publication',
   props<{ id: string }>()
 );
 
 export const loadpublicationSucces = createAction(
- '[publications Component] load publications Succes',
+ '[publication Component] load publications Succes',
  props<{ publication: Publication[] }>()
 );
 
 export const errorloadpublication = createAction(
- '[publications Component] Error load publications',
+ '[publication Component] Error load publications',
  props<{ payload: any }>()
 );
+
+export const loadpublicationByTerm = createAction(
+  '[publication Component] load publication ByTerm',
+  props<{ term: string }>()
+);
+
+export const loadpublicationByTermSucces = createAction(
+  '[publication Component] load publications By term Succes',
+  props<{ publication: Publication[] }>()
+ );
+
+ export const errorloadpublicationByTerm = createAction(
+  '[publication Component] Error load publication ByTerm',
+  props<{ payload: any }>()
+ );
 
 export const deletepublication = createAction(
   '[publications Component] delete publication',

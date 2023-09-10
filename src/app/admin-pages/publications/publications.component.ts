@@ -53,7 +53,7 @@ export class PublicationsComponent {
     })
   }
 
-  redirectToEdit(id: string){
-    this.router.navigateByUrl(`dashboard/create-publication/${id}`)
+  redirectToEdit(name: string){
+    this.router.navigateByUrl(`dashboard/create-publication/${name}`)
   }
 }

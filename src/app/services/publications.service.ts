@@ -25,6 +25,11 @@ export class PublicationsService {
     return this.http.get<Publication>( `${this.url}/publications/by-id/${id}` )
   }
 
+  getPublicationsByTerm(term:string){
+    const newterm = term.replaceAll(" ", "%20")
+    return this.http.get<Publication>( `${this.url}/publications/by-term/${newterm}` )
+  }
+
   updatePublications( id: string, publication: Publication){
     const { name, content } = publication;
     const body = { name,  content}

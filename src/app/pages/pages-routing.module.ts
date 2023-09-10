@@ -9,6 +9,7 @@ import { ProjectByIdComponent } from './project-by-id/project-by-id.component';
 import { PagesComponent } from './pages.component';
 import { LoginComponent } from './login/login.component';
 import { PublicationsComponent } from './publications/publications.component';
+import { PublicationByTermComponent } from './publication-by-term/publication-by-term.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,7 @@ const routes: Routes = [
       { path: 'projects', component: ProjectsComponent  },
       { path: 'publications', component: PublicationsComponent  },
       { path: 'project/:id', component: ProjectByIdComponent  },
+      { path: 'publication/:term', component: PublicationByTermComponent  },
       { path: 'contactos', component: ContactsComponent  },
       { path: 'login', component: LoginComponent  },
       { path: '**', redirectTo: 'inicio'},

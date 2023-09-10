@@ -26,6 +26,7 @@ export class CreatePublicationComponent implements OnInit, OnDestroy{
   public publication!: Publication;
   public previewImage!: string | null;
   public id!: string;
+  public loading: boolean = false;
 
   private fb = inject(FormBuilder);
   private validatorsService = inject(ValidatorsService);
@@ -47,7 +48,7 @@ export class CreatePublicationComponent implements OnInit, OnDestroy{
         filter( resp => resp.publication.length !== 0 )
       )
       .subscribe( (publications ) => {
-        this.loadPublication( this.id, publications.publication[0] )
+        this.loadPublicationNow( this.id, publications.publication[0] )
       })
 
       if( this.id !== 'new' ){
@@ -109,7 +110,7 @@ export class CreatePublicationComponent implements OnInit, OnDestroy{
      }
    }
 
-  loadPublication(id:string, publication: Publication){
+  loadPublicationNow(id:string, publication: Publication){
     if ( id === 'new') return;
     this.publication = publication;
     const { name, content, img } = publication;
@@ -119,9 +120,11 @@ export class CreatePublicationComponent implements OnInit, OnDestroy{
 
   sendImage(){
     if(!this.uploadImage) return;
+    this.loading = true
     this.fileuploadService.uploadFile(this.uploadImage, 'publication')
       .subscribe({
         next: (resp ) => {
+          this.loading = false,
           this.ImageUrlUpload = resp
           Swal.fire({
             icon: 'success',

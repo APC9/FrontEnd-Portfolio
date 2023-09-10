@@ -22,8 +22,7 @@ export class TokenInterceptor implements HttpInterceptor {
   }
 
   handleErrors(err: HttpErrorResponse){
-    console.log(err)
-    return throwError(err)
+    return throwError(()=> new Error(err.message))
   }
 
 

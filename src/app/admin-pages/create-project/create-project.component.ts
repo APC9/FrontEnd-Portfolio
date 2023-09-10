@@ -30,6 +30,7 @@ export class CreateProjectComponent implements OnInit, OnDestroy {
   public previewImage!: string | null;
   public ImageUrlUpload: string = '';
   public id!: string;
+  public loading: boolean = false;
 
   private fb = inject(FormBuilder)
   private validatorsService = inject(ValidatorsService);
@@ -155,9 +156,11 @@ export class CreateProjectComponent implements OnInit, OnDestroy {
 
   sendImage(){
     if(!this.uploadImage) return;
+    this.loading = true;
     this.fileuploadService.uploadFile(this.uploadImage)
       .subscribe({
         next: (resp ) => {
+          this.loading = false;
           this.ImageUrlUpload = resp
           Swal.fire({
             icon: 'success',

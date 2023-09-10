@@ -65,7 +65,7 @@
 }
 
 .item span {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 1);
 }
 
 .item span:nth-child(1) {
@@ -73,10 +73,6 @@
   font-size: 30px;
   margin-right: 30px;
   transition: all .5s;
-}
-
-.item:hover span, span:nth-child(1) {
-  color: rgba(255, 255, 255, 1);
 }
 
 .item:hover span:nth-child(1) {
@@ -194,6 +190,14 @@
     width: 100%;
     margin: 0;
     padding: 45px;
+  }
+
+}
+
+@media (max-width: 400px) {
+
+  .input-box input[type='submit'] {
+    width: 40%;
   }
 
 }
