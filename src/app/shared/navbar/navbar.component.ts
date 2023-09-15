@@ -25,7 +25,6 @@ export class NavbarComponent implements OnInit{
   private elementRef = inject(ElementRef);
   private router = inject(Router);
   private store = inject(Store<authState>);
-  private clearSubscription!: Subscription;
   private authService = inject(AuthService);
 
   ngOnInit(): void {

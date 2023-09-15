@@ -1,13 +1,14 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Project } from '../models/project.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectsService {
 
-  private url: string = 'http://localhost:4500'
+  private url: string = environment.URL_API
   private http = inject(HttpClient);
 
   constructor() { }

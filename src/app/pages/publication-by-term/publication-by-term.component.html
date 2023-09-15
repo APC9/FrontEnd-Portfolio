@@ -56,7 +56,7 @@
       <div class="section__publication" *ngFor="let public of publications">
         <div class="section__img">
           <img [src]="public.img" [alt]="public.name">
-          <h5><strong>{{public.name}}</strong></h5>
+          <h5 (click)="redirectToPublication(public.name)" ><strong>{{public.name}}</strong></h5>
         </div>
       </div>
     </div>

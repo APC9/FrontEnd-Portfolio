@@ -1,15 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Observable, catchError, map, of, tap } from 'rxjs';
 import { Router } from '@angular/router';
+import { Observable, catchError, map, of, tap } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private url = 'http://localhost:4500'
+  private url = environment.URL_API;
+
   private http = inject(HttpClient);
   private router = inject(Router);
 

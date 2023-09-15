@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Email } from '../models/email.model';
+import { environment } from '../../environments/environment';
 
 
 @Injectable({
@@ -8,7 +9,7 @@ import { Email } from '../models/email.model';
 })
 export class SendEmailService {
 
-  private url: string = 'http://localhost:4500'
+  private url: string = environment.URL_API
   private http = inject(HttpClient);
 
   constructor() { }
