@@ -1,3 +1,3 @@
 export const environment = {
-  URL_API: 'http://localhost:4500'
+  URL_API: 'https://apc91-backend.up.railway.app'
 };
