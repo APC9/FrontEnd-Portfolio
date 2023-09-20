@@ -7,6 +7,10 @@
       <h1><strong>Ultimas</strong> Publicaciones</h1>
     </div>
 
+    <div *ngIf="publications.length === 0">
+      <span class="loader"></span>
+    </div>
+
     <section>
 
       <div class="container__publication">

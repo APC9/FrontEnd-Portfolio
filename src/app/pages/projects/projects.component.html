@@ -10,6 +10,10 @@
 
     <div class="container__projects">
 
+      <div *ngIf="projects.length === 0">
+        <span class="loader"></span>
+      </div>
+
       <div class="projects__card" *ngFor="let project of projects">
 
         <div class="card__img" >
