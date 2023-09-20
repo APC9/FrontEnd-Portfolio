@@ -30,7 +30,7 @@
           </tr>
           <tr>
               <th>Descripcion</th>
-              <td>{{project.description}}</td>
+              <td [innerHTML]="project.description | parrafoSplit "></td>
           </tr>
       </table>
 

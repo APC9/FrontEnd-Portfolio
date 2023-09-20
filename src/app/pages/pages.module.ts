@@ -16,6 +16,7 @@ import { StoreModule } from '@ngrx/store';
 import { authenticatedReducer } from './authStore/auth.store';
 import { PublicationsComponent } from './publications/publications.component';
 import { PublicationByTermComponent } from './publication-by-term/publication-by-term.component';
+import { ParrafoSplitPipe } from './pipe/parrafo-split.pipe';
 
 
 
@@ -30,7 +31,8 @@ import { PublicationByTermComponent } from './publication-by-term/publication-by
     PagesComponent,
     LoginComponent,
     PublicationsComponent,
-    PublicationByTermComponent
+    PublicationByTermComponent,
+    ParrafoSplitPipe,
   ],
   imports: [
     CommonModule,
