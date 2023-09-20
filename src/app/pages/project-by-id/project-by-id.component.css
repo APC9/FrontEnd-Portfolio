@@ -1,6 +1,6 @@
 .contenedor{
   width: 100%;
-  height: calc( 100vh - 100px);
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,11 +15,12 @@
   height: 100%;
   background: white;
   padding-top: 150px;
+  padding-bottom: 150px;
 }
 
 .container__img{
   width: 45%;
-  height: 95%;
+  height: 70vh;
   border: 2px solid black;
   border-radius: 30px;
   display: flex;
@@ -108,9 +109,10 @@
   color: white;
 }
 
-table {
+.info table {
   border-collapse: collapse;
   width: 100%;
+  height: 100%;
   margin-bottom: 50px;
   background-color: white;
 }
@@ -138,10 +140,14 @@ tr:nth-child(odd) {
     top: 180px;
   }
 
+  .contenedor__general{
+    flex-direction: column;
+  }
   .container__img{
     width: 80%;
-    height: 50%;
+    height: 50vh;
     bottom: 300px;
+    margin-top: 100px;
   }
 
   .container__descripcion{
