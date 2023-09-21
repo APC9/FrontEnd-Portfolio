@@ -2,9 +2,7 @@ import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
 
-import { Subscription } from 'rxjs';
-import Swal from 'sweetalert2';
-
+import { Subscription, filter } from 'rxjs';
 
 import { Project } from '../../models/project.model';
 import { projectsState } from '../../admin-pages/store/project/projects.reducer';
@@ -28,9 +26,13 @@ export class ProjectsComponent implements OnInit, OnDestroy{
 
 
   ngOnInit(): void {
-    this.clearSubscriptions = this.store.select('projects').subscribe(({projects})=>{
-      this.projects = projects;
-      projects.map( (project:Project) => this.imgRef = `../../../assets/img/${project.technologies[0].toLowerCase()}.png` )
+    this.clearSubscriptions = this.store.select('projects')
+      .pipe(
+        filter( ({projects })=>  projects.length > 0)
+      )
+      .subscribe(({projects})=>{  
+        this.projects = projects;
+        projects.map( (project:Project) => this.imgRef = `../../../assets/img/${project.technologies[0].toLowerCase()}.png` )
     })
 
     this.authClearSubscriptions = this.store.select('auth').subscribe( (auth) => this.authenticated = auth.isAuthenticated)

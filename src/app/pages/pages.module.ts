@@ -17,6 +17,8 @@ import { authenticatedReducer } from './authStore/auth.store';
 import { PublicationsComponent } from './publications/publications.component';
 import { PublicationByTermComponent } from './publication-by-term/publication-by-term.component';
 import { ParrafoSplitPipe } from './pipe/parrafo-split.pipe';
+import { ReversePipe } from './pipe/reverse.pipe';
+import { PortfolioFirstPipe } from './pipe/portfolio-first.pipe';
 
 
 
@@ -33,6 +35,8 @@ import { ParrafoSplitPipe } from './pipe/parrafo-split.pipe';
     PublicationsComponent,
     PublicationByTermComponent,
     ParrafoSplitPipe,
+    ReversePipe,
+    PortfolioFirstPipe
   ],
   imports: [
     CommonModule,

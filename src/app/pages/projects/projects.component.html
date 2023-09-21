@@ -14,7 +14,7 @@
         <span class="loader"></span>
       </div>
 
-      <div class="projects__card" *ngFor="let project of projects">
+      <div class="projects__card" *ngFor="let project of projects | reverse | portfolioFirst">
 
         <div class="card__img" >
           <img [src]="project.img"/>
