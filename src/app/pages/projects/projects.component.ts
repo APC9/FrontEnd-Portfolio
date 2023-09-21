@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
 
-import { Subscription, filter } from 'rxjs';
+import { Subscription, delay, filter } from 'rxjs';
 
 import { Project } from '../../models/project.model';
 import { projectsState } from '../../admin-pages/store/project/projects.reducer';
@@ -15,7 +15,7 @@ import * as actionProjects from '../../admin-pages/store/project/projects.action
 })
 export class ProjectsComponent implements OnInit, OnDestroy{
 
-  public projects: Project[] = [];
+  public projects!: Project[];
   public authenticated!: boolean;
   public imgRef!: string;
 
@@ -28,9 +28,9 @@ export class ProjectsComponent implements OnInit, OnDestroy{
   ngOnInit(): void {
     this.clearSubscriptions = this.store.select('projects')
       .pipe(
-        filter( ({projects })=>  projects.length > 0)
+        filter( ({projects })=>  projects.length > 0),
       )
-      .subscribe(({projects})=>{  
+      .subscribe(({projects})=>{
         this.projects = projects;
         projects.map( (project:Project) => this.imgRef = `../../../assets/img/${project.technologies[0].toLowerCase()}.png` )
     })

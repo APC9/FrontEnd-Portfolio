@@ -8,11 +8,14 @@ export class PortfolioFirstPipe implements PipeTransform {
 
   transform(projects: Project[]) {
 
-    const portafolio = projects.find( project => project.name === "App Portafolio Personal");
+    if(projects){
+      const portafolio = projects.find( project => project.name === "App Portafolio Personal");
 
-    projects = projects.filter( project => project.name !== "App Portafolio Personal")
-    
-    projects.unshift(portafolio!);
+      projects = projects.filter( project => project.name !== "App Portafolio Personal")
+
+      projects.unshift(portafolio!);
+      return projects
+    }
     return projects
   }
 

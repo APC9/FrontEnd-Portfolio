@@ -20,12 +20,12 @@ export const loadProject = createAction(
 );
 
 export const loadProjectSucces = createAction(
- '[Projects Component] load Projects Succes',
+ '[Projects Component] load Project Succes',
  props<{ project: Project[] }>()
 );
 
 export const errorloadProject = createAction(
- '[Projects Component] Error load Projects',
+ '[Projects Component] Error load Project',
  props<{ payload: any }>()
 );
 

@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { ActivatedRoute } from '@angular/router';
 
 import { Project } from 'src/app/models/project.model';
-import { Subscription, filter } from 'rxjs';
+import { Subscription, delay, filter } from 'rxjs';
 import { loadProject, loadProjects } from '../../admin-pages/store/project/projects.actions';
 import { projectsState } from '../../admin-pages/store/project/projects.reducer';
 
@@ -18,6 +18,7 @@ export class ProjectByIdComponent implements OnInit, OnDestroy {
 
 
   public project!: Project;
+
   private store = inject( Store<projectsState>);
   private route = inject(ActivatedRoute);
   private clearSubscriptions!: Subscription;
@@ -26,14 +27,18 @@ export class ProjectByIdComponent implements OnInit, OnDestroy {
     const id = this.route.snapshot.params['id']
     this.clearSubscriptions = this.store.select('projects')
       .pipe(
-        filter( resp => resp.project.length !== 0 )
+        filter( resp => resp.project.length > 0 ),
+        delay(200),
       )
-      .subscribe(project => {
-        this.project = project.project[0]
+      .subscribe(({project}) => {
+        if( project ){
+          this.project = project[0] as Project
+        }
+
       })
 
-    this.store.dispatch( loadProjects() )
     this.store.dispatch( loadProject({id}))
+    this.store.dispatch( loadProjects() )
   }
 
   ngOnDestroy(): void {
