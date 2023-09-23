@@ -96,6 +96,8 @@ section{
   display: flex;
   flex-direction: column;
   margin-top: 50px;
+  position: sticky;
+  top: 200px;
 }
 
 .container__section h3{
