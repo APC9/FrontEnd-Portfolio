@@ -1,14 +1,19 @@
 <div class="contenedor">
 
-  <div class="contenedor__general">
+  <div class="contenedor__general" [ngStyle]="{'height': !project ? '100vh' : ''}">
 
-      <div class="container__img animate__animated animate__backInLeft">
+
+    <div *ngIf="!project" class="loader-div">
+      <span class="loader"></span>
+    </div>
+
+    <div class="container__img animate__animated animate__backInLeft" *ngIf="project">
     <div class="img__imagen">
       <img [src]="project!.img" />
     </div>
   </div>
 
-  <div class="container__descripcion">
+  <div class="container__descripcion" *ngIf="project" >
 
     <div class="descripcion__info">
       <h1><strong>Descripcion</strong> del Proyecto</h1>

@@ -1,7 +1,7 @@
 <section class="contenedor animate__animated animate__fadeIn">
 
 
-  <div class="contenedor__general">
+  <div class="contenedor__general" [ngStyle]="{'height': !publication ? '100vh' : ''}">
 
     <div *ngIf="!publication" class="loader-div">
       <span class="loader"></span>

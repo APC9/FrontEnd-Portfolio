@@ -1,6 +1,6 @@
 <section class="contenedor animate__animated animate__fadeIn">
 
-  <div class="contenedor__general">
+  <div class="contenedor__general" [ngStyle]="{'height': !projects ? '100vh': ''}">
 
     <div class="container__title">
       <div class="general__banner">
@@ -14,7 +14,10 @@
         <span class="loader"></span>
       </div>
 
-      <div class="projects__card" *ngFor="let project of projects | reverse | portfolioFirst">
+      <div
+
+        class="projects__card"
+        *ngFor="let project of projects | reverse | portfolioFirst">
 
         <div class="card__img" >
           <img [src]="project.img"/>
@@ -42,6 +45,7 @@
       </div>
 
     </div>
+
   </div>
 
 </section>
