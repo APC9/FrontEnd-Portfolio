@@ -4,7 +4,7 @@
   <div class="contenedor__general">
 
     <div class="general__banner">
-      <h1><strong>Ultimas</strong> Publicaciones</h1>
+      <h1><strong>Publicaciones</strong></h1>
     </div>
 
     <div *ngIf="publications.length === 0">
@@ -14,7 +14,7 @@
     <section>
 
       <div class="container__publication">
-        <div class="publication__card" *ngFor="let publication of publications">
+        <div class="publication__card" *ngFor="let publication of publications | reverse">
           <div class="publication__img">
             <img [src]="publication.img"/>
           </div>
@@ -29,10 +29,10 @@
 
       <div class="container__section">
 
-        <h3>Ultimas publicaciones</h3>
+        <h3>publicaciones Recientes</h3>
 
         <div class="section__publication">
-          <div class="section__img" *ngFor="let publication of publications">
+          <div class="section__img" *ngFor="let publication of publications | lastTen">
             <img [src]="publication.img" [alt]="publication.name">
             <h5 (click)="redirectToPublication(publication.name)"><strong>{{publication.name}}</strong></h5>
           </div>

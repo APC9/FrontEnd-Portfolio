@@ -19,6 +19,8 @@ import { PublicationByTermComponent } from './publication-by-term/publication-by
 import { ParrafoSplitPipe } from './pipe/parrafo-split.pipe';
 import { ReversePipe } from './pipe/reverse.pipe';
 import { PortfolioFirstPipe } from './pipe/portfolio-first.pipe';
+import { LastTenPipe } from './pipe/last-ten.pipe';
+import { FilterPublicationPipe } from './pipe/filter-publication.pipe';
 
 
 
@@ -36,7 +38,9 @@ import { PortfolioFirstPipe } from './pipe/portfolio-first.pipe';
     PublicationByTermComponent,
     ParrafoSplitPipe,
     ReversePipe,
-    PortfolioFirstPipe
+    PortfolioFirstPipe,
+    LastTenPipe,
+    FilterPublicationPipe
   ],
   imports: [
     CommonModule,

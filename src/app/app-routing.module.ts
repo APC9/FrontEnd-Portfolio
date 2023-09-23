@@ -21,7 +21,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  // habilitar { useHash: true} para evitar error de page not found en netlify
+  imports: [RouterModule.forRoot(routes, { useHash: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

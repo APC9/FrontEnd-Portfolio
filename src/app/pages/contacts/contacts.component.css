@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: calc(100vh - 100px);
 
   background: #f98a5b;
 }
@@ -13,7 +13,7 @@
   left: 0;
   top: 0;
   width: 50%;
-  height: 100vh;
+  height: calc(100vh - 100px);
   background: #aaa;
 }
 

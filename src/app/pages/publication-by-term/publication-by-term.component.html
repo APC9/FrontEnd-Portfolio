@@ -1,59 +1,30 @@
 <section class="contenedor animate__animated animate__fadeIn">
+
+
   <div class="contenedor__general">
+
+    <div *ngIf="!publication" class="loader-div">
+      <span class="loader"></span>
+    </div>
+
 
     <div class="container__info">
       <div class="container__title">
         <h1 class="custon__title">{{publication?.name}}</h1>
       </div>
 
-      <div class="container__img">
-        <img [src]="publication?.img" alt="img de la Aplicacion" />
+      <div class="container__img" *ngIf="publication">
+        <img [src]="publication!.img" alt="img de la Aplicacion" />
       </div>
 
-      <div class="container__publication">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint dolore unde ex autem nesciunt officia distinctio atque, tempora natus rerum saepe vitae ad corporis reprehenderit sit modi culpa dicta repellendus!
-
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis, vel possimus obcaecati cum explicabo, facere omnis commodi voluptatem quibusdam cumque ratione eaque. Itaque nulla adipisci officiis suscipit, perferendis sequi animi.
-
-
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero est aspernatur corporis officia adipisci eveniet ab saepe ut ratione, hic, tenetur excepturi illo debitis minima vitae et laborum deserunt impedit!
-
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est a esse fugiat libero dolor eaque consectetur quaerat dolorum eius, ipsa nihil ullam sapiente nobis ab obcaecati accusamus blanditiis voluptatem deleniti!
-        </p>
-
-        <pre>
-          console.log( 'hello world')
-        </pre>
-
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint dolore unde ex autem nesciunt officia distinctio atque, tempora natus rerum saepe vitae ad corporis reprehenderit sit modi culpa dicta repellendus!
-
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis, vel possimus obcaecati cum explicabo, facere omnis commodi voluptatem quibusdam cumque ratione eaque. Itaque nulla adipisci officiis suscipit, perferendis sequi animi.
-
-
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero est aspernatur corporis officia adipisci eveniet ab saepe ut ratione, hic, tenetur excepturi illo debitis minima vitae et laborum deserunt impedit!
-
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est a esse fugiat libero dolor eaque consectetur quaerat dolorum eius, ipsa nihil ullam sapiente nobis ab obcaecati accusamus blanditiis voluptatem deleniti!
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint dolore unde ex autem nesciunt officia distinctio atque, tempora natus rerum saepe vitae ad corporis reprehenderit sit modi culpa dicta repellendus!
-
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis, vel possimus obcaecati cum explicabo, facere omnis commodi voluptatem quibusdam cumque ratione eaque. Itaque nulla adipisci officiis suscipit, perferendis sequi animi.
-
-
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero est aspernatur corporis officia adipisci eveniet ab saepe ut ratione, hic, tenetur excepturi illo debitis minima vitae et laborum deserunt impedit!
-
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est a esse fugiat libero dolor eaque consectetur quaerat dolorum eius, ipsa nihil ullam sapiente nobis ab obcaecati accusamus blanditiis voluptatem deleniti!
-        </p>
-      </div>
+      <div class="container__publication" [innerHTML]="publication?.content"></div>
     </div>
 
-    <div class="container__section">
+    <div class="container__section" *ngIf="publications">
 
       <h3>Otras publicaciones</h3>
 
-      <div class="section__publication" *ngFor="let public of publications">
+      <div class="section__publication" *ngFor="let public of publications | filterPublication">
         <div class="section__img">
           <img [src]="public.img" [alt]="public.name">
           <h5 (click)="redirectToPublication(public.name)" ><strong>{{public.name}}</strong></h5>
