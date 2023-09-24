@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { Publication } from '../../models/publication.model';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { publicationsState } from 'src/app/admin-pages/store/publications/publications.reducer';
 import { loadpublications } from '../../admin-pages/store/publications/publications.actions';
@@ -20,6 +20,9 @@ export class PublicationsComponent implements OnInit, OnDestroy{
   private clearSubscription!: Subscription;
 
   ngOnInit(): void {
+
+    this.router.events.subscribe( () => window.scroll(0, 0) )
+
     this.clearSubscription = this.store.select('publications')
       .subscribe( ({ publications } ) =>{
         this.publications = publications
