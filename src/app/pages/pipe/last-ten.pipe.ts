@@ -11,7 +11,7 @@ export class LastTenPipe implements PipeTransform {
       return value;
     }
 
-    return value.slice(-3).reverse();
+    return value.slice(-10).reverse();
   }
 
 }
